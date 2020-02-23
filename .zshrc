@@ -6,6 +6,8 @@ fortune | cowsay -f $(ls /usr/share/cowsay/cows | shuf -n1)| lolcat
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/will/.oh-my-zsh"
+export EDITOR=/usr/bin/vim
+export VISUAL=/usr/bin/vim
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
