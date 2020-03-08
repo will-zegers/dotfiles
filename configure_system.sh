@@ -19,13 +19,11 @@ sudo apt -y upgrade
 sudo apt -y install \
   build-essential \
   cmatrix \
-  cowsay \
   curl \
   ddate \
-  fortune \
   git \
   ipython \
-  lolcat \
+  neofetch \
   python3-venv \
   python3-pip \
   terminator \
@@ -34,6 +32,8 @@ sudo apt -y install \
   zsh \
 ;
 sudo apt -y autoremove
+
+sudo pip3 install ipython
 
 # ZSH tools and plugins
 ## Oh My Zsh
