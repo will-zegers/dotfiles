@@ -9,7 +9,6 @@ then
   exit 0
 fi
 
-CONFIG_FILES=${HOME}/{${HOME}/.config/terminator/config,${HOME}/.vimrc,${HOME}/.zshrc}
 sudo -v
 
 rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
@@ -60,8 +59,5 @@ fi
 
 # Use Python3
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-
-cp ./config.terminator ${HOME}/.config/terminator/config
-cp ./{.vimrc,.zshrc} ${HOME}
 
 touch ${CONFIG_WITNESS}
