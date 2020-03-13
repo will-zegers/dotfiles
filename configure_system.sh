@@ -28,11 +28,15 @@ sudo apt -y install \
   terminator \
   tmux \
   vim \
+  xclip \
   zsh \
 ;
 sudo apt -y autoremove
 
 sudo pip3 install ipython
+
+# Use Python3
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # ZSH tools and plugins
 ## Oh My Zsh
@@ -56,8 +60,5 @@ if [ ! -f ${HOME}/.ssh/id_${KEY_TYPE}.pub ]
 then
   ssh-keygen -t ${KEY_TYPE}
 fi
-
-# Use Python3
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 touch ${CONFIG_WITNESS}
