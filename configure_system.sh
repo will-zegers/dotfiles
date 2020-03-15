@@ -28,6 +28,7 @@ sudo apt -y install \
   terminator \
   tmux \
   vim \
+  vlc \
   xclip \
   zsh \
 ;
