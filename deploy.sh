@@ -27,18 +27,18 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 # ZSH tools and plugins
 ## Oh My Zsh
-DIR=${HOME}/.oh-my-zsh
-if [ ! -d ${DIR} ]
+OH_MY_ZSH_DIR=${HOME}/.oh-my-zsh
+if [ ! -d ${OH_MY_ZSH_DIR} ]
 then
-  echo ${DIR}
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  echo "alias gmod='git merge origin develop'" >> ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 fi
 
-## zsh-autosuggestion
-DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-if [ ! -d ${DIR} ]
+## zsh-autosuggestions
+ZSH_AUTOSUGGESTIONS_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+if [ ! -d ${ZSH_AUTOSUGGESTION_DIR} ]
 then
-  git clone https://github.com/zsh-users/zsh-autosuggestions ${DIR}
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_AUTOSUGGESTIONS_DIR}
 fi
 
 cp vim/.vimrc ${HOME}
