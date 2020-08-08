@@ -31,7 +31,7 @@ DIR=${HOME}/.oh-my-zsh
 if [ ! -d ${DIR} ]
 then
   echo ${DIR}
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --skip-chsh"
 fi
 
 ## zsh-autosuggestion
