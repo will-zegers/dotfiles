@@ -14,7 +14,6 @@ function add-dotfile-as-source()
 rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
 
 sudo apt -y update
-sudo apt -y upgrade
 sudo apt -y install \
   build-essential \
   curl \
@@ -29,7 +28,10 @@ sudo apt -y install \
 ;
 sudo apt -y autoremove
 
-sudo pip3 install ipython
+sudo pip3 install \
+  ipython \
+  numpy \
+;
 
 # Use Python3
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
@@ -50,7 +52,6 @@ then
 fi
 
 SCRIPT_PATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-echo ${SCRIPT_PATH}
 add-dotfile-as-source ${SCRIPT_PATH}/bash/.bashrc ${HOME}/.bashrc
 add-dotfile-as-source ${SCRIPT_PATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
 add-dotfile-as-source ${SCRIPT_PATH}/vim/.vimrc ${HOME}/.vimrc
