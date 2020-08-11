@@ -9,6 +9,7 @@ set cursorline
 set expandtab
 set hlsearch
 set list
+set nrformats-=octal
 set number
 set relativenumber
 set tabstop=4
