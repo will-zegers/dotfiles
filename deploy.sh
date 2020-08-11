@@ -1,6 +1,15 @@
 #! /usr/bin/env bash
 
-set -e
+set -ex
+
+function add-dotfile-as-source()
+{
+    local src=$1
+    local dst=$2
+    local cmd="source ${src}"
+
+    grep "${cmd}" ${dst} &> /dev/null || echo ${cmd} >> ${dst}
+}
 
 rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
 
@@ -30,7 +39,7 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 OH_MY_ZSH_DIR=${HOME}/.oh-my-zsh
 if [ ! -d ${OH_MY_ZSH_DIR} ]
 then
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --skip-chsh"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
   echo "alias gmod='git merge origin develop'" >> ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 fi
 
@@ -41,6 +50,12 @@ then
   git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_AUTOSUGGESTIONS_DIR}
 fi
 
-echo "source ${HOME}/vim/.vimrc" >> ${HOME}/.vimrc
-echo "source ${HOME}/tmux/.tmux.conf" >> ${HOME}/.tmux.conf
-cp zsh/.zshrc ${HOME}
+SCRIPT_PATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+echo ${SCRIPT_PATH}
+add-dotfile-as-source ${SCRIPT_PATH}/bash/.bashrc ${HOME}/.bashrc
+add-dotfile-as-source ${SCRIPT_PATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
+add-dotfile-as-source ${SCRIPT_PATH}/vim/.vimrc ${HOME}/.vimrc
+add-dotfile-as-source ${SCRIPT_PATH}/zsh/.zshrc ${HOME}/.zshrc
+
+chsh -s $(which zsh)
+exec zsh
