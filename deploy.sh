@@ -40,8 +40,6 @@ OH_MY_ZSH_DIR=${HOME}/.oh-my-zsh
 if [ ! -d ${OH_MY_ZSH_DIR} ]
 then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
-  echo "alias gmod='git merge origin develop'" >> ~/.oh-my-zsh/plugins/git/git.plugin.zsh
-  echo "alias gcnuke='git clean -dff'" >> ~/.oh-my-zsh/plugins/git/git.plugin.zsh
 fi
 
 ## zsh-autosuggestions
