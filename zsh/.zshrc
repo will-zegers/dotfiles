@@ -99,9 +99,3 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias xclip="xclip -sel clip"
-
-# Additional git aliases
-alias gcnuke='git clean -dff'
-alias gmod='git merge origin develop'
-alias grbod='git rebase origin develop'

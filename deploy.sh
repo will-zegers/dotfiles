@@ -55,6 +55,7 @@ add-dotfile-as-source ${SCRIPT_PATH}/bash/.bashrc ${HOME}/.bashrc
 add-dotfile-as-source ${SCRIPT_PATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
 add-dotfile-as-source ${SCRIPT_PATH}/vim/.vimrc ${HOME}/.vimrc
 add-dotfile-as-source ${SCRIPT_PATH}/zsh/.zshrc ${HOME}/.zshrc
+add-dotfile-as-source ${SCRIPT_PATH}/zsh/.zshrc_aliases ${HOME}/.zshrc
 
 chsh -s $(which zsh)
 exec zsh
