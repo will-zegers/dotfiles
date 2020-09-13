@@ -30,7 +30,6 @@ sudo apt -y autoremove
 
 sudo pip3 install \
   ipython \
-  numpy \
 ;
 
 # Use Python3
