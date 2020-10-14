@@ -10,6 +10,9 @@ nnoremap ; :
 " (re)generate ctags by pressing F5
 nnoremap <f5> :!ctags -R<CR> --languages=C++,Python
 
+" better looking colorscheme with tmux
+colorscheme desert
+
 set cursorline
 set expandtab
 set hlsearch
