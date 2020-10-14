@@ -5,6 +5,7 @@
 export ZSH="${HOME}/.oh-my-zsh"
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
+export PATH=${PATH}:${HOME}/dotfiles/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -19,7 +20,7 @@ ZSH_THEME="rkj-repos"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.

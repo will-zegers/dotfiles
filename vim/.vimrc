@@ -3,8 +3,12 @@ call matchadd('ColorColumn', '\%81v', 100)
 " show trailing whitespaces and tabs
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
+" swap role of ; and : (i.e. use ';' to run Ex commands)
 nnoremap : ;
 nnoremap ; :
+
+" (re)generate ctags by pressing F5
+nnoremap <f5> :!ctags -R<CR> --languages=C++,Python
 
 set cursorline
 set expandtab
