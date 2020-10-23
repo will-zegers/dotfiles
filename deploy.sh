@@ -13,29 +13,6 @@ function add-dotfile-as-source()
 
 rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
 
-sudo apt -y update
-sudo apt -y install \
-  build-essential \
-  curl \
-  ddate \
-  exuberant-ctags \
-  git \
-  python3-venv \
-  python3-pip \
-  tmux \
-  vim \
-  xclip \
-  zsh \
-;
-sudo apt -y autoremove
-
-sudo pip3 install \
-  ipython \
-;
-
-# Use Python3
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-
 # ZSH tools and plugins
 ## Oh My Zsh
 OH_MY_ZSH_DIR=${HOME}/.oh-my-zsh
@@ -57,6 +34,3 @@ add-dotfile-as-source ${SCRIPT_PATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
 add-dotfile-as-source ${SCRIPT_PATH}/vim/.vimrc ${HOME}/.vimrc
 add-dotfile-as-source ${SCRIPT_PATH}/zsh/.zshrc ${HOME}/.zshrc
 add-dotfile-as-source ${SCRIPT_PATH}/aliases ${HOME}/.zshrc
-
-chsh -s $(which zsh)
-exec zsh
