@@ -34,3 +34,11 @@ add-dotfile-as-source ${SCRIPT_PATH}/tmux/.tmux.conf ${HOME}/.tmux.conf
 add-dotfile-as-source ${SCRIPT_PATH}/vim/.vimrc ${HOME}/.vimrc
 add-dotfile-as-source ${SCRIPT_PATH}/zsh/.zshrc ${HOME}/.zshrc
 add-dotfile-as-source ${SCRIPT_PATH}/aliases ${HOME}/.zshrc
+
+PLUGIN_START_DIR=${HOME}/.vim/pack/vendor/start
+mkdir -p ${PLUGIN_START_DIR}
+git clone https://github.com/preservim/nerdtree.git ${PLUGIN_START_DIR}/nerdtree
+
+mkdir ${HOME}/.vim/plugin
+git clone https://github.com/jiangmiao/auto-pairs.git /tmp/auto-pairs
+cp /tmp/auto-pairs/plugin/auto-pairs.vim ${HOME}/.vim/plugin

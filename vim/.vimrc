@@ -7,6 +7,9 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 nnoremap : ;
 nnoremap ; :
 
+" open NERDTree with F2
+nnoremap <f2> :NERDTree<CR>
+
 " (re)generate ctags by pressing F5
 nnoremap <f5> :!ctags -R<CR> --languages=C++,Python
 
