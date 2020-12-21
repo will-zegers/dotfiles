@@ -9,17 +9,9 @@ apt -y install \
   ddate \
   exuberant-ctags \
   git \
-  python3-pip \
+  screenfetch \
   tmux \
   vim \
-  xclip \
   zsh \
 ;
 apt -y autoremove
-
-pip3 install \
-  ipython \
-;
-
-# Use Python3
-update-alternatives --install /usr/bin/python python /usr/bin/python3 1
