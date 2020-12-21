@@ -10,6 +10,7 @@ apt -y install \
   exuberant-ctags \
   git \
   screenfetch \
+  terminator \
   tmux \
   vim \
   zsh \

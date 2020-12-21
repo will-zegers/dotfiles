@@ -1,0 +1,33 @@
+#! /usr/bin/env bash
+
+set -ex
+
+if ! dpkg -l git terminator tmux vim zsh &> /dev/null
+then
+    echo "Run install_dependencies first"
+    exit 1
+fi
+
+DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
+function add-dotfile-as-source() {
+    # Append a line in `src` to source the `dst` file
+    local src=$1
+    local dst=$2
+    local cmd="source ${src}"
+
+    grep "${cmd}" ${dst} &> /dev/null || echo ${cmd} >> ${dst}
+}
+
+# Never need these
+rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
+
+${DOTFILES_DIR}/terminator/setup ${DOTFILES_DIR}
+${DOTFILES_DIR}/vim/setup
+${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}
+
+add-dotfile-as-source ${DOTFILES_DIR}/bash/.bashrc ${HOME}/.bashrc
+add-dotfile-as-source ${DOTFILES_DIR}/tmux/.tmux.conf ${HOME}/.tmux.conf
+add-dotfile-as-source ${DOTFILES_DIR}/vim/.vimrc ${HOME}/.vimrc
+add-dotfile-as-source ${DOTFILES_DIR}/zsh/.zshrc ${HOME}/.zshrc
+add-dotfile-as-source ${DOTFILES_DIR}/aliases ${HOME}/.zshrc
