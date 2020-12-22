@@ -4,7 +4,6 @@ set -ex
 
 apt -y update
 apt -y install \
-  build-essential \
   curl \
   ddate \
   exuberant-ctags \
