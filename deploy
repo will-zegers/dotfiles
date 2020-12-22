@@ -2,7 +2,7 @@
 
 set -ex
 
-if ! dpkg -l git terminator tmux vim zsh &> /dev/null
+if ! dpkg -l git tmux vim zsh &> /dev/null
 then
     echo "Run install_dependencies first"
     exit 1
@@ -22,9 +22,13 @@ function add-dotfile-as-source() {
 # Never need these
 rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
 
-${DOTFILES_DIR}/terminator/setup ${DOTFILES_DIR}
 ${DOTFILES_DIR}/vim/setup
 ${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}
+if systemd-detect-virt; then
+    ${DOTFILES_DIR}/terminator/setup ${DOTFILES_DIR}
+fi
+
+
 
 add-dotfile-as-source ${DOTFILES_DIR}/bash/.bashrc ${HOME}/.bashrc
 add-dotfile-as-source ${DOTFILES_DIR}/tmux/.tmux.conf ${HOME}/.tmux.conf

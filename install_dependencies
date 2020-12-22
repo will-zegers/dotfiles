@@ -9,9 +9,14 @@ apt -y install \
   exuberant-ctags \
   git \
   screenfetch \
-  terminator \
   tmux \
   vim \
   zsh \
 ;
+
+# only install terminator on host machines
+if systemd-detect-virt
+then
+    apt -y install terminator
+fi
 apt -y autoremove
