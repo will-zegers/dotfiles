@@ -1,24 +1,23 @@
 FROM ubuntu
 
-ARG USER=will.zegers
-ARG UID=1001
-ARG GID=1001
-ARG PW=docker
-ARG HOME=/home/${USER}
-ARG DIR=${HOME}/dotfiles
-ARG COLOR="cyan"
+ARG user=will.zegers
+ARG uid=1001
+ARG pw=docker
+ARG home=/home/${user}
+ARG dir=${home}/dotfiles
+ARG prompt_color="cyan"
 
 USER root
 ADD ./install_dependencies /tmp/install_dependencies
 RUN DEBIAN_FRONTEND=noninteractive /tmp/install_dependencies
-RUN useradd --uid ${UID} \
+RUN useradd --uid ${uid} \
             --shell /usr/bin/zsh \
-            --create-home ${USER} \
-    && echo "${USER}:${PW}" | chpasswd
+            --create-home ${user} \
+    && echo "${user}:${pw}" | chpasswd
 
-USER ${USER}
-COPY . ${DIR}
-ENV PROMPT_COLOR ${COLOR}
-RUN ${DIR}/deploy
-WORKDIR ${HOME}
+USER ${user}
+COPY . ${dir}
+ENV PROMPT_COLOR ${prompt_color}
+RUN ${dir}/deploy
+WORKDIR ${home}
 ENTRYPOINT ["zsh"]
