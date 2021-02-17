@@ -13,10 +13,8 @@ nnoremap <f2> :NERDTree<CR>
 " open git blame on current file with F3
 nnoremap <f3> :!git blame %<CR>
 
-" (re)generate ctags by pressing F5
-nnoremap <f5> :!ctags -R<CR> --languages=C++,Python
-
-inoremap fd <ESC>
+"show open buffers
+nnoremap <f4> :buffers<CR>
 
 " better looking colorscheme with tmux
 colorscheme desert
@@ -24,6 +22,7 @@ colorscheme desert
 set cursorline
 set encoding=utf-8
 set expandtab
+set hidden
 set hlsearch
 set history=200
 set list

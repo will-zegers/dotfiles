@@ -1,6 +1,7 @@
-FROM ubuntu
+FROM ubuntu:bionic
 
 ARG user=will.zegers
+ARG group=${user}
 ARG uid=1001
 ARG pw=docker
 ARG home=/home/${user}
@@ -16,7 +17,7 @@ RUN useradd --uid ${uid} \
     && echo "${user}:${pw}" | chpasswd
 
 USER ${user}
-COPY . ${dir}
+COPY --chown=${user}:${group} . ${dir}
 ENV PROMPT_COLOR ${prompt_color}
 RUN ${dir}/deploy
 WORKDIR ${home}
