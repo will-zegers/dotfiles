@@ -3,9 +3,22 @@ call matchadd('ColorColumn', '\%81v', 100)
 " show trailing whitespaces and tabs
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
+" leader key stuff
+let mapleader=","
+inoremap <leader>w <Esc>:w<CR>
+nnoremap <leader>w :w<CR>
+
+nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
+nnoremap <leader>s :vsplit<CR>:w<CR>
+noremap <leader>i :split<CR>:w<CR>
+nnoremap <leader>n :NERDTree<CR>
+nnoremap <leader>b :buffers<CRbuffers<CR>
+
 " swap role of ; and : (i.e. use ';' to run Ex commands)
 nnoremap : ;
 nnoremap ; :
+
+nnoremap  :noh<CR>
 
 " open NERDTree with F2
 nnoremap <f2> :NERDTree<CR>
