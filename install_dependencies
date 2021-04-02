@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 
-set -ex
+set -x
+
+DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 apt -y update
 apt -y install \
@@ -14,9 +16,17 @@ apt -y install \
   zsh \
 ;
 
-# only install terminator on host machines
-if systemd-detect-virt
-then
-    apt -y install terminator
+read -n1 -t5 -s -p "Install Alacritty? [y|N]" resp
+if [[ ${resp} =~ y|Y ]]; then
+  apt -y install cargo
+
+  git clone https://github.com/alacritty/alacritty.git
+  $(cd alacritty; cargo install alacritty)
+
+  update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator ${HOME}/.cargo/bin/alacritty 50
+
+  mkdir -p ${HOME}/.config/alacritty/
+  cp ${DOTFILES_DIR}/alacritty/alacritty.yaml ${HOME}/.config/alacritty
 fi
+
 apt -y autoremove

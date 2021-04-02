@@ -31,3 +31,10 @@ if [ ! -d ${ZSH_SYNTAX_HIGHLIGHTING_DIR} ]
 then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_SYNTAX_HIGHLIGHTING_DIR}
 fi
+
+
+FZF_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf
+if [ ! -d ${FZF_DIR} ]
+then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ${FZF_DIR} && ${FZF_DIR}/install | yes
+fi

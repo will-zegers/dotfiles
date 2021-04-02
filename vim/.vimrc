@@ -7,6 +7,8 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 let mapleader=","
 inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
+inoremap <leader>q <Esc>:q<CR>
+nnoremap <leader>q :q<CR>
 
 nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>
