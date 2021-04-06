@@ -9,11 +9,12 @@ inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
 inoremap <leader>q <Esc>:q<CR>
 nnoremap <leader>q :q<CR>
+inoremap <leader>wq <Esc>:wq<CR>
+nnoremap <leader>wq :wq<CR>
 
 nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>
 noremap <leader>i :split<CR>:w<CR>
-nnoremap <leader>n :NERDTree<CR>
 nnoremap <leader>b :buffers<CRbuffers<CR>
 
 " swap role of ; and : (i.e. use ';' to run Ex commands)
@@ -22,8 +23,13 @@ nnoremap ; :
 
 nnoremap  :noh<CR>
 
-" open NERDTree with F2
+" NERDTree
 nnoremap <f2> :NERDTree<CR>
+nnoremap <leader>n :NERDTree<CR>
+" enable line numbers
+let NERDTreeShowLineNumbers=1
+" make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber"
 
 " open git blame on current file with F3
 nnoremap <f3> :!git blame %<CR>
