@@ -5,17 +5,15 @@ exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
 " leader key stuff
 let mapleader=","
-inoremap <leader>w <Esc>:w<CR>
-nnoremap <leader>w :w<CR>
+inoremap <leader>w <Esc>:wa<CR>
+nnoremap <leader>w :wa<CR>
 inoremap <leader>q <Esc>:q<CR>
 nnoremap <leader>q :q<CR>
-inoremap <leader>wq <Esc>:wq<CR>
-nnoremap <leader>wq :wq<CR>
 
 nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>
 noremap <leader>i :split<CR>:w<CR>
-nnoremap <leader>b :buffers<CRbuffers<CR>
+nnoremap <leader>b :buffers<CR>buffers<CR>
 
 " swap role of ; and : (i.e. use ';' to run Ex commands)
 nnoremap : ;
