@@ -9,9 +9,14 @@ then
 fi
 
 PLUGIN_START_DIR=${HOME}/.vim/pack/vendor/start
-mkdir -p ${PLUGIN_START_DIR}
-git clone https://github.com/preservim/nerdtree.git ${PLUGIN_START_DIR}/nerdtree
+if [ ! -d ${PLUGIN_START_DIR} ]; then
+    mkdir -p ${PLUGIN_START_DIR}
+    git clone https://github.com/preservim/nerdtree.git ${PLUGIN_START_DIR}/nerdtree
+fi
 
-mkdir ${HOME}/.vim/plugin
-git clone https://github.com/jiangmiao/auto-pairs.git /tmp/auto-pairs
-cp /tmp/auto-pairs/plugin/auto-pairs.vim ${HOME}/.vim/plugin
+VIM_PLUGIN_DIR=${HOME}/.vim/plugin
+if [ ! -d ${VIM_PLUGIN_DIR} ]; then
+    mkdir -p ${VIM_PLUGIN_DIR}
+    git clone https://github.com/jiangmiao/auto-pairs.git /tmp/auto-pairs
+    cp /tmp/auto-pairs/plugin/auto-pairs.vim ${HOME}/.vim/plugin
+fi

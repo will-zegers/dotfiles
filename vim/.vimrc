@@ -9,8 +9,6 @@ inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w :w<CR>
 inoremap <leader>q <Esc>:q<CR>
 nnoremap <leader>q :q<CR>
-inoremap <leader>wq <Esc>:wq<CR>
-nnoremap <leader>wq :wq<CR>
 
 nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>

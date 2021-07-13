@@ -72,7 +72,7 @@ CASE_SENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 FZF_BASE=${ZSH}/custom/plugins/fzf
-plugins=(git vi-mode zsh-autosuggestions sudo zsh-syntax-highlighting vi-mode fzf tmux)
+plugins=(git vi-mode zsh-autosuggestions sudo zsh-syntax-highlighting fzf tmux)
 
 source $ZSH/oh-my-zsh.sh
 
