@@ -36,5 +36,5 @@ fi
 FZF_DIR=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf
 if [ ! -d ${FZF_DIR} ]
 then
-    git clone --depth 1 https://github.com/junegunn/fzf.git ${FZF_DIR} && ${FZF_DIR}/install | yes
+    git clone --depth 1 https://github.com/junegunn/fzf.git ${FZF_DIR} && yes | ${FZF_DIR}/install
 fi
