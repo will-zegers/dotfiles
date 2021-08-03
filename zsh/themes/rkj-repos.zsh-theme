@@ -32,7 +32,7 @@ function can_i_run_sudo {
     CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1|grep "load"|wc -l)
     if [ ${CAN_I_RUN_SUDO} -gt 0 ]
     then
-        echo ", %{$fg_bold[red]%}sudo%{$fg_bold[${PROMPT_COLOR}]%}"
+        echo ", %{$fg_bold[red]%}sudo${PROMPT_COLOR}"
     fi
 }
 
@@ -40,8 +40,8 @@ function retcode() {}
 
 # alternate prompt with git & hg
 if [ -z ${PROMPT_COLOR} ]; then
-    PROMPT_COLOR="blue"
+    PROMPT_COLOR="$FX[bold]$FG[004]"
 fi
-PROMPT=$'%{$fg_bold[${PROMPT_COLOR}]%}┌─[%{$fg_bold[green]%}%n%b%{$fg[black]%}@%{$fg[cyan]%}%m%{$fg_bold[${PROMPT_COLOR}]%}]%{$reset_color%} - %{$fg_bold[${PROMPT_COLOR}]%}[%{$fg_bold[white]%}%~%{$fg_bold[${PROMPT_COLOR}]%}]%{$reset_color%} - %{$fg_bold[${PROMPT_COLOR}]%}[%b%{$fg[yellow]%}'%D{"%Y-%m-%d %I:%M:%S"}%b$'%{$fg_bold[${PROMPT_COLOR}]%}]
-%{$fg_bold[${PROMPT_COLOR}]%}└─[%{$fg_bold[magenta]%}%?$(retcode)%{$fg_bold[${PROMPT_COLOR}]%}$(can_i_run_sudo)] <$(mygit)$(hg_prompt_info)>%{$reset_color%} '
+PROMPT=$'${PROMPT_COLOR}┌─[%{$fg_bold[green]%}%n%b%{$fg[black]%}@%{$fg[cyan]%}%m${PROMPT_COLOR}]%{$reset_color%} - ${PROMPT_COLOR}[%{$fg_bold[white]%}%~${PROMPT_COLOR}]%{$reset_color%} - ${PROMPT_COLOR}[%b%{$fg[yellow]%}'%D{"%Y-%m-%d %I:%M:%S"}%b$'${PROMPT_COLOR}]
+${PROMPT_COLOR}└─[%{$fg_bold[magenta]%}%?$(retcode)${PROMPT_COLOR}$(can_i_run_sudo)] <$(mygit)$(hg_prompt_info)>%{$reset_color%} '
 PS2=$' \e[0;34m%}%B>%{\e[0m%}%b '
