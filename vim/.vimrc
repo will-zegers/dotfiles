@@ -13,7 +13,10 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>
 noremap <leader>i :split<CR>:w<CR>
-nnoremap <leader>b :buffers<CR>buffers<CR>
+nnoremap <leader>b :buffers<CR>
+nnoremap <leader>d :bdel<CR>
+nnoremap <leader>. :set nonumber norelativenumber<CR>
+nnoremap <leader>/ :set number relativenumber<CR>
 
 " swap role of ; and : (i.e. use ';' to run Ex commands)
 nnoremap : ;

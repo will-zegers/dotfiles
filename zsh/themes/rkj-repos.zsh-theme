@@ -40,7 +40,7 @@ function retcode() {}
 
 # alternate prompt with git & hg
 if [ -z ${PROMPT_COLOR} ]; then
-    PROMPT_COLOR="$FX[bold]$FG[004]"
+    PROMPT_COLOR="$FX[bold]$FG[001]"
 fi
 PROMPT=$'${PROMPT_COLOR}┌─[%{$fg_bold[green]%}%n%b%{$fg[black]%}@%{$fg[cyan]%}%m${PROMPT_COLOR}]%{$reset_color%} - ${PROMPT_COLOR}[%{$fg_bold[white]%}%~${PROMPT_COLOR}]%{$reset_color%} - ${PROMPT_COLOR}[%b%{$fg[yellow]%}'%D{"%Y-%m-%d %I:%M:%S"}%b$'${PROMPT_COLOR}]
 ${PROMPT_COLOR}└─[%{$fg_bold[magenta]%}%?$(retcode)${PROMPT_COLOR}$(can_i_run_sudo)] <$(mygit)$(hg_prompt_info)>%{$reset_color%} '
