@@ -9,29 +9,47 @@ set -ex
 
 DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-apt -y update
-apt -y install \
-  curl \
-  ddate \
-  exuberant-ctags \
-  git \
-  screenfetch \
-  tmux \
-  vim \
-  zsh \
+apt update -y
+apt install -y\
+  clang\
+  cmake\
+  curl\
+  ddate\
+  exuberant-ctags\
+  git\
+  screenfetch\
+  tmux\
+  vim\
+  zsh\
 ;
 
 read -n1 -t5 -s -p "Install Alacritty? [y|N]" resp || true
 if [[ ${resp} =~ y|Y ]]; then
-  apt -y install cargo
+  apt install -y \
+      cargo \
+      cmake \
+      libfontconfig1-dev\
+      libfreetype6-dev\
+      libxcb-xfixes0-dev\
+      libxkbcommon-dev\
+      pkg-config\
+      python3\
+  ;
 
-  git clone https://github.com/alacritty/alacritty.git
-  $(cd alacritty; cargo install alacritty)
+  ALACRITTY_DIR=${DOTFILES_DIR}/../alacritty
+  ALACRITTY_RELEASE=alacritty_terminal_v0.16.0
+  ALACRITTY_INSTALL_DIR=/usr/local/bin
+  if [ ! -d ${ALACRITTY_DIR} ]; then
+      git clone -b ${ALACRITTY_RELEASE} https://github.com/alacritty/alacritty.git ${ALACRITTY_DIR} || true
+  fi
 
-  update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator ${HOME}/.cargo/bin/alacritty 50
+  $(cd alacritty; cargo build --release)
+  cp ${ALACRITTY_DIR}/target/release/alacritty ${ALACRITTY_INSTALL_DIR}
+
+  update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator  ${ALACRITTY_INSTALL_DIR}/alacritty 50
 
   mkdir -p ${HOME}/.config/alacritty/
-  cp ${DOTFILES_DIR}/alacritty/alacritty.yaml ${HOME}/.config/alacritty
+  cp ${DOTFILES_DIR}/alacritty/alacritty.yml ${HOME}/.config/alacritty
 fi
 
 apt -y autoremove
