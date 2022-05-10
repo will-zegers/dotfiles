@@ -68,3 +68,6 @@ set path+=%:h/**
 
 " auto-indent
 filetype plugin indent on
+
+" use ripgrep (rg) instead of native vimgrep
+set grepprg=rg\ --vimgrep\ --smart-case

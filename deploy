@@ -10,15 +10,6 @@ fi
 
 DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
-function add-dotfile-as-source() {
-    # Append a line in `src` to source the `dst` file
-    local src=$1
-    local dst=$2
-    local cmd="source ${src}"
-
-    grep "${cmd}" ${dst} &> /dev/null || echo ${cmd} >> ${dst}
-}
-
 # Never need these
 rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
 
@@ -28,7 +19,14 @@ if systemd-detect-virt; then
     ${DOTFILES_DIR}/terminator/setup ${DOTFILES_DIR}
 fi
 
+function add-dotfile-as-source() {
+    # Append a line in `src` to source the `dst` file
+    local src=$1
+    local dst=$2
+    local cmd="source ${src}"
 
+    grep "${cmd}" ${dst} &> /dev/null || echo ${cmd} >> ${dst}
+}
 
 add-dotfile-as-source ${DOTFILES_DIR}/bash/.bashrc ${HOME}/.bashrc
 add-dotfile-as-source ${DOTFILES_DIR}/tmux/.tmux.conf ${HOME}/.tmux.conf

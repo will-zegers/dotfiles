@@ -11,8 +11,8 @@ alias gsu='git submodule update --recursive --init'
 #
 # SSH
 #
-alias robot-ssh='ssh -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -A'
-alias robot-scp='scp -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no"'
+alias robot-ssh='ssh -i ~/.ssh/field_key -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -A'
+alias robot-scp='scp -i ~/.ssh/field_key -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no"'
 
 #
 # Docker
