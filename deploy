@@ -15,9 +15,6 @@ rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
 
 ${DOTFILES_DIR}/vim/setup
 ${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}
-if systemd-detect-virt; then
-    ${DOTFILES_DIR}/terminator/setup ${DOTFILES_DIR}
-fi
 
 function add-dotfile-as-source() {
     # Append a line in `src` to source the `dst` file

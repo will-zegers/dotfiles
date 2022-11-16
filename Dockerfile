@@ -14,6 +14,7 @@ RUN useradd --uid ${uid} \
             --shell /usr/bin/zsh \
             --create-home ${user} \
     && echo "${user}:${pw}" | chpasswd
+RUN apt install -y iproute2 sudo
 
 USER ${user}
 COPY --chown=${user}:${group} . ${dir}
