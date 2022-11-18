@@ -1,23 +1,25 @@
-FROM ubuntu:latest
+FROM ubuntu:jammy-20221101
 
-ARG user=will.zegers
-ARG group=${user}
+ARG user=will.container
+ARG home=/home/${user}
+ARG dotfiles_dir=${home}/dotfiles
 ARG uid=1001
 ARG pw=docker
-ARG home=/home/${user}
-ARG dir=${home}/dotfiles
 
-USER root
-ADD ./install_dependencies /tmp/install_dependencies
-RUN DEBIAN_FRONTEND=noninteractive /tmp/install_dependencies
+RUN export DEBIAN_FRONTEND=noninteractive
 RUN useradd --uid ${uid} \
-            --shell /usr/bin/zsh \
             --create-home ${user} \
     && echo "${user}:${pw}" | chpasswd
-RUN apt install -y iproute2 sudo
+RUN apt update && apt install -y git
 
 USER ${user}
-COPY --chown=${user}:${group} . ${dir}
-RUN ${dir}/deploy
 WORKDIR ${home}
+RUN git clone https://github.com/will-zegers/dotfiles.git --recursive
+
+USER root
+RUN ${home}/dotfiles/install_dependencies
+RUN usermod --shell /usr/bin/zsh ${user}
+
+USER ${user}
+RUN ${dotfiles_dir}/deploy
 ENTRYPOINT ["zsh"]
