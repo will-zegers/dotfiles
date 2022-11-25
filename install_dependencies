@@ -19,6 +19,7 @@ apt install -y\
   git\
   screenfetch\
   tmux\
+  tree\
   vim\
   zsh\
 ;
