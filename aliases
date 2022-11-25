@@ -53,3 +53,8 @@ function cd() {
     fi;
     builtin cd "${new_directory}" && ls
 }
+
+alias timestamp="date +%Y.%m.%d@%H:%M"
+function bak() {
+  cp $1 $1.$(timestamp)~
+}
