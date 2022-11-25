@@ -17,6 +17,7 @@ nnoremap <leader>b :buffers<CR>
 nnoremap <leader>d :bdel<CR>
 nnoremap <leader>. :set nonumber norelativenumber<CR>
 nnoremap <leader>/ :set number relativenumber<CR>
+nnoremap <leader>p :set invpaste paste?<CR>
 
 " swap role of ; and : (i.e. use ';' to run Ex commands)
 nnoremap : ;
