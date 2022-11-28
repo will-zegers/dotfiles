@@ -1,4 +1,4 @@
-FROM ubuntu:jammy-20221101
+FROM debian:bullseye-slim
 
 ARG user=will.container
 ARG home=/home/${user}
@@ -7,13 +7,14 @@ ARG uid=1001
 ARG passwd=docker
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN useradd --uid ${uid} --create-home ${user}\
+WORKDIR /tmp
+COPY . /tmp/dotfiles/
+RUN apt update\
+  && apt install -y sudo\
+  && useradd --uid ${uid} --create-home ${user} -G sudo\
   && echo "${user}:${passwd}" | chpasswd\
-  && apt update\
-  && apt install -y sudo
-
-COPY . ${dotfiles_dir}
-RUN chown ${user}: ${dotfiles_dir}\
+  && mv /tmp/dotfiles ${dotfiles_dir}\
+  && chown ${user}: ${dotfiles_dir}\
   && ${dotfiles_dir}/install_dependencies\
   && usermod --shell /usr/bin/zsh ${user}
 
