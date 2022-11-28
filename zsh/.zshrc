@@ -102,3 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export LANG=en_US.UTF-8
+
+neofetch
+ddate

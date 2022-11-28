@@ -17,8 +17,9 @@ apt install -y\
   ddate\
   exuberant-ctags\
   git\
-  screenfetch\
+  neofetch\
   tmux\
+  trash-cli\
   tree\
   vim\
   zsh\
