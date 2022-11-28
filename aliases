@@ -1,51 +1,5 @@
 alias xclip="xclip -sel clip"
 
-#
-# Git
-#
-alias gcnuke='git clean -dff'
-alias gmod='git merge origin develop'
-alias grbod='git rebase origin develop'
-alias gsu='git submodule update --recursive --init'
-
-#
-# SSH
-#
-alias robot-ssh='ssh -i ~/.ssh/field_key -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -A'
-alias robot-scp='scp -i ~/.ssh/field_key -o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no"'
-
-#
-# Docker
-#
-alias dkb='docker build'
-
-## containers
-alias dkcr='docker container run'
-alias dkcrm='docker container rm'
-alias dkcls='docker container ls'
-alias dkclsa='docker container ls -a'
-alias dkcrst='docker container restart'
-alias dkcatt='docker container attach'
-
-# images
-alias dkirm='docker image rm'
-alias dkils='docker images'
-alias dkilsa='docker images -a'
-alias dkiprune='docker image prune -a'
-
-function docker_spinup () {
-    local name=$1
-    docker container restart ${name}
-    docker container attach ${name}
-}
-alias dkspin='docker_spinup'
-
-#
-# Python
-#
-alias ipy='ipython'
-
-# CLI
 function cd() {
     new_directory="$*";
     if [ $# -eq 0 ]; then 
