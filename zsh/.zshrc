@@ -5,7 +5,6 @@
 export ZSH="${HOME}/.oh-my-zsh"
 export EDITOR=/usr/bin/vim
 export VISUAL=/usr/bin/vim
-export PATH=${PATH}:${HOME}/dotfiles/bin
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
