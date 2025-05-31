@@ -3,7 +3,7 @@
 set -ex
 
 ALACRITTY_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )/alacritty"
-ALACRITTY_RELEASE=v0.12.3
+ALACRITTY_RELEASE=v0.13.2
 ALACRITTY_INSTALL_DIR=/usr/local/bin
 ALACRITTY_CONFIG_DIR=${HOME}/.config/alacritty
 ALACRITTY_THEME_DIR=${ALACRITTY_CONFIG_DIR}/themes/

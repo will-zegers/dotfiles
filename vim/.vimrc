@@ -13,6 +13,8 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>
 noremap <leader>i :split<CR>:w<CR>
+nnoremap <leader>< :bprevious<CR>
+nnoremap <leader>> :bnext<CR>
 nnoremap <leader>b :buffers<CR>
 nnoremap <leader>d :bdel<CR>
 nnoremap <leader>. :set nonumber norelativenumber<CR>
