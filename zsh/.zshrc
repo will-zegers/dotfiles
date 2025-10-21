@@ -3,8 +3,8 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -70,7 +70,6 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-FZF_BASE=${ZSH}/custom/plugins/fzf
 plugins=(git vi-mode zsh-autosuggestions sudo zsh-syntax-highlighting fzf tmux)
 
 source $ZSH/oh-my-zsh.sh
@@ -101,3 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export LANG=en_US.UTF-8
+
+# Add fzf bin directory to the PATH
+PATH=$PATH:${HOME}/.vim/pack/bundle/start/fzf/bin
+export FZF_DEFAULT_COMMAND='rg --files'

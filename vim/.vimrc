@@ -1,4 +1,4 @@
-call matchadd('ColorColumn', '\%81v', 100)
+call matchadd('ColorColumn', '\%101v', 100)
 
 " show trailing whitespaces and tabs
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
@@ -27,6 +27,9 @@ nnoremap ; :
 
 nnoremap  :noh<CR>
 
+" Neovim
+nnoremap <C-a> :terminal<CR>
+
 " NERDTree
 nnoremap <f2> :NERDTree<CR>
 nnoremap <leader>n :NERDTree<CR>
@@ -34,6 +37,10 @@ nnoremap <leader>n :NERDTree<CR>
 let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber"
+
+" FZF
+nnoremap <C-p> :FZF<CR>
+nnoremap <C-b> :Buffers<CR>
 
 " open git blame on current file with F3
 nnoremap <f3> :!git blame %<CR>
@@ -73,4 +80,7 @@ set path+=%:h/**
 filetype plugin indent on
 
 " use ripgrep (rg) instead of native vimgrep
-set grepprg=rg\ --vimgrep\ --smart-case
+set grepprg=rg\ -H\ --no-heading\ --vimgrep\ --smart-case
+set grepformat=$f:$l:%c:%m
+nnoremap <Leader>g :Grepper -tool rg<CR>
+nnoremap <Leader>G :Grepper -tool rg -cword<CR>
