@@ -12,13 +12,11 @@ nnoremap <leader>q :q<CR>
 
 nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>
-noremap <leader>i :split<CR>:w<CR>
+nnoremap <leader>i :split<CR>:w<CR>
 nnoremap <leader>< :bprevious<CR>
 nnoremap <leader>> :bnext<CR>
-nnoremap <leader>b :buffers<CR>
 nnoremap <leader>d :bdel<CR>
-nnoremap <leader>. :set nonumber norelativenumber<CR>
-nnoremap <leader>/ :set number relativenumber<CR>
+nnoremap <leader>. :set invnumber invrelativenumber<CR>
 nnoremap <leader>p :set invpaste paste?<CR>
 
 " swap role of ; and : (i.e. use ';' to run Ex commands)
@@ -28,7 +26,11 @@ nnoremap ; :
 nnoremap  :noh<CR>
 
 " Neovim
-nnoremap <C-a> :terminal<CR>
+nnoremap <C-a> :terminal<CR>i
+if has('nvim')
+    tnoremap <Esc> <C-\><C-N>
+    tnoremap <C-[> <C-\><C-N>
+endif
 
 " NERDTree
 nnoremap <f2> :NERDTree<CR>
@@ -39,14 +41,16 @@ let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber"
 
 " FZF
-nnoremap <C-p> :FZF<CR>
+nnoremap <C-f> :FZF<CR>
 nnoremap <C-b> :Buffers<CR>
 
 " open git blame on current file with F3
 nnoremap <f3> :!git blame %<CR>
+nnoremap <Leader>gbl :!git blame %<CR>
 
 "show open buffers
 nnoremap <f4> :buffers<CR>
+nnoremap <leader>b :buffers<CR>
 
 " better looking colorscheme with tmux
 colorscheme desert
@@ -80,7 +84,12 @@ set path+=%:h/**
 filetype plugin indent on
 
 " use ripgrep (rg) instead of native vimgrep
-set grepprg=rg\ -H\ --no-heading\ --vimgrep\ --smart-case
-set grepformat=$f:$l:%c:%m
+runtime plugin/grepper.vim
+let g:grepper.rg = {
+    \ 'grepprg': 'rg -H --no-heading --vimgrep --smart-case',
+    \ 'grepformat': '%f:%l:%c:%m,%f',
+    \ 'escape':     '\^$.*+?()[]{}|',
+\}
 nnoremap <Leader>g :Grepper -tool rg<CR>
-nnoremap <Leader>G :Grepper -tool rg -cword<CR>
+nnoremap <Leader>G :Grepper -tool rg -cword -noprompt<CR>
+

@@ -2,5 +2,5 @@
 *.bak
 .vagrant
 
-# ALacaritty build dir
+# Alacaritty build dir
 /alacritty/alacritty
