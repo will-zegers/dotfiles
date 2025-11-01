@@ -2,11 +2,21 @@
 
 set -ex
 
+# Grab the latest stable release of Neovim
+arch=$(uname -m)
+if [[ "$arch" == "x86_64" ]]; then
+    PKG_NAME="nvim-linux-x86_64"
+elif [[ "$arch" == "aarch64" ]]; then
+    PKG_NAME="nvim-linux-arm64"
+fi
+wget https://github.com/neovim/neovim/releases/latest/download/$PKG_NAME.tar.gz /tmp
+tar xzf /tmp/$PKG_NAME.tar.gz -C /tmp
+sudo mv /tmp/$PKG_NAME/* /usr/local/
+
 sudo apt update -y
 sudo apt install -y\
   curl\
   git\
-  neovim\
   ripgrep\
   tmux\
   tree\

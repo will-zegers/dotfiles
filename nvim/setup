@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+${SOURCE_DIR}=$1
+
+NVIM_CONFIG_DIR="${HOME}/.config/nvim/"
+
+mkdir ${NVIM_CONFIG_DIR}
+cp ${SOURCE_DIR}/init.vim ${NVIM_CONFIG_DIR}
+
+PLUGIN_START_DIR=${NVIM_CONFIG_DIR}/pack/bundle/start
+if [ ! -d ${PLUGIN_START_DIR} ]; then
+    mkdir -p ${PLUGIN_START_DIR}
+    git clone https://github.com/nvim-telescope/telescope.nvim.git ${PLUGIN_START_DIR}/telescope.nvim
+    git clone https://github.com/nvim-lua/plenary.nvim.git         ${PLUGIN_START_DIR}/plenary.nvim
+fi

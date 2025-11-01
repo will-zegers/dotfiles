@@ -13,8 +13,9 @@ DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 # Never need these
 rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
 
+${DOTFILES_DIR}/nvim/setup ${DOTFILES_DIR}/nvim/
 ${DOTFILES_DIR}/vim/setup
-${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}
+${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}/zsh/
 
 function add-dotfile-as-source() {
     # Append a line in `src` to source the `dst` file

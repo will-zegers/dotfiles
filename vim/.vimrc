@@ -10,7 +10,7 @@ nnoremap <leader>w :wa<CR>
 inoremap <leader>q <Esc>:q<CR>
 nnoremap <leader>q :q<CR>
 
-nnoremap <leader>t :tabnew<CR>:NERDTree<CR>
+nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>
 nnoremap <leader>i :split<CR>:w<CR>
 nnoremap <leader>< :bprevious<CR>
@@ -27,10 +27,6 @@ nnoremap  :noh<CR>
 
 " Neovim
 nnoremap <C-a> :terminal<CR>i
-if has('nvim')
-    tnoremap <Esc> <C-\><C-N>
-    tnoremap <C-[> <C-\><C-N>
-endif
 
 " NERDTree
 nnoremap <f2> :NERDTree<CR>
@@ -41,8 +37,8 @@ let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal relativenumber"
 
 " FZF
-nnoremap <C-f> :FZF<CR>
-nnoremap <C-b> :Buffers<CR>
+nnoremap <leader>ff :FZF<CR>
+nnoremap <leader>fb :Buffers<CR>
 
 " open git blame on current file with F3
 nnoremap <f3> :!git blame %<CR>
@@ -53,7 +49,7 @@ nnoremap <f4> :buffers<CR>
 nnoremap <leader>b :buffers<CR>
 
 " better looking colorscheme with tmux
-colorscheme desert
+colorscheme slate
 
 set cursorline
 set encoding=utf-8
@@ -68,6 +64,7 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 set smartcase
+set undofile
 
 " for zsh autocomplete behavior
 set wildmenu
