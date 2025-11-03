@@ -90,3 +90,8 @@ let g:grepper.rg = {
 nnoremap <Leader>g :Grepper -tool rg<CR>
 nnoremap <Leader>G :Grepper -tool rg -cword -noprompt<CR>
 
+
+nnoremap <leader>zr :!zig run %<CR>
+nnoremap <leader>zb :!zig build %<CR>
+nnoremap <leader>zt :!zig test %<CR>
+
