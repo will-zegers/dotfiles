@@ -30,3 +30,5 @@ add-dotfile-as-source ${DOTFILES_DIR}/tmux/.tmux.conf ${HOME}/.tmux.conf
 add-dotfile-as-source ${DOTFILES_DIR}/vim/.vimrc ${HOME}/.vimrc
 add-dotfile-as-source ${DOTFILES_DIR}/zsh/.zshrc ${HOME}/.zshrc
 add-dotfile-as-source ${DOTFILES_DIR}/aliases ${HOME}/.zshrc
+
+cp ${DOTFILES_DIR}/.ctags ${HOME}

@@ -1,15 +1,14 @@
+set nocompatible
+
 call matchadd('ColorColumn', '\%101v', 100)
 
 " show trailing whitespaces and tabs
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 
 " leader key stuff
-let mapleader=","
-inoremap <leader>w <Esc>:wa<CR>
+let mapleader=" "
 nnoremap <leader>w :wa<CR>
-inoremap <leader>q <Esc>:q<CR>
 nnoremap <leader>q :q<CR>
-
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>s :vsplit<CR>:w<CR>
 nnoremap <leader>i :split<CR>:w<CR>
@@ -19,14 +18,24 @@ nnoremap <leader>d :bdel<CR>
 nnoremap <leader>. :set invnumber invrelativenumber<CR>
 nnoremap <leader>p :set invpaste paste?<CR>
 
+" keep cursor at same spot when appending lines
+nnoremap J mzJ`z
+
+" cursor follows lines in visual mode to move highlighted text up and down
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
+
 " swap role of ; and : (i.e. use ';' to run Ex commands)
 nnoremap : ;
 nnoremap ; :
 
-nnoremap  :noh<CR>
+nnoremap <C-l> :noh<CR>
 
-" Neovim
-nnoremap <C-a> :terminal<CR>i
+" fugitive
+nnoremap <leader>gss :Git<CR>
+nnoremap <leader>gd  :Git diff<CR>
+nnoremap <leader>ga  :Git add %<CR>
+nnoremap <leader>gbl :Git blame<CR>
 
 " NERDTree
 nnoremap <f2> :NERDTree<CR>
@@ -39,10 +48,6 @@ autocmd FileType nerdtree setlocal relativenumber"
 " FZF
 nnoremap <leader>ff :FZF<CR>
 nnoremap <leader>fb :Buffers<CR>
-
-" open git blame on current file with F3
-nnoremap <f3> :!git blame %<CR>
-nnoremap <Leader>gbl :!git blame %<CR>
 
 "show open buffers
 nnoremap <f4> :buffers<CR>
@@ -71,7 +76,6 @@ set wildmenu
 set wildmode=full
 
 " netrw
-set nocompatible
 filetype plugin on
 
 " include the initial cwd in the search path
@@ -89,7 +93,6 @@ let g:grepper.rg = {
 \}
 nnoremap <Leader>g :Grepper -tool rg<CR>
 nnoremap <Leader>G :Grepper -tool rg -cword -noprompt<CR>
-
 
 nnoremap <leader>zr :!zig run %<CR>
 nnoremap <leader>zb :!zig build %<CR>

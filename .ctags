@@ -1,0 +1,5 @@
+--recurse=yes
+--exclude=.cargo
+--exclude=.git
+--exclude=.swp
+--exclude=target/

@@ -16,6 +16,7 @@ sudo mv /tmp/$PKG_NAME/* /usr/local/
 sudo apt update -y
 sudo apt install -y\
   curl\
+  exuberant-ctags\
   git\
   ripgrep\
   tmux\
