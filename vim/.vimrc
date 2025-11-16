@@ -63,6 +63,7 @@ set hidden
 set hlsearch
 set history=200
 set list
+set nowrap
 set nrformats-=octal
 set number
 set relativenumber
@@ -84,13 +85,6 @@ set path+=%:h/**
 " auto-indent
 filetype plugin indent on
 
-" use ripgrep (rg) instead of native vimgrep
-runtime plugin/grepper.vim
-let g:grepper.rg = {
-    \ 'grepprg': 'rg -H --no-heading --vimgrep --smart-case',
-    \ 'grepformat': '%f:%l:%c:%m,%f',
-    \ 'escape':     '\^$.*+?()[]{}|',
-\}
 nnoremap <Leader>g :Grepper -tool rg<CR>
 nnoremap <Leader>G :Grepper -tool rg -cword -noprompt<CR>
 

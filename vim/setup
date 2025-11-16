@@ -14,7 +14,6 @@ if [ ! -d ${PLUGIN_START_DIR} ]; then
     git clone https://github.com/jiangmiao/auto-pairs.git ${PLUGIN_START_DIR}/auto-pairs
     git clone https://github.com/junegunn/fzf.git         ${PLUGIN_START_DIR}/fzf
     git clone https://github.com/junegunn/fzf.vim.git     ${PLUGIN_START_DIR}/fzf.vim
-    git clone https://github.com/mhinz/vim-grepper.git    ${PLUGIN_START_DIR}/grepp.vim
     git clone https://github.com/preservim/nerdtree.git   ${PLUGIN_START_DIR}/nerdtree.vim
     git clone https://github.com/tpope/vim-fugitive.git   ${PLUGIN_START_DIR}/fugitive.vim
     git clone https://github.com/tpope/vim-obsession.git  ${PLUGIN_START_DIR}/obsession.vim
