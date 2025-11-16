@@ -12,13 +12,15 @@ PLUGIN_START_DIR=${HOME}/.vim/pack/bundle/start
 if [ ! -d ${PLUGIN_START_DIR} ]; then
     mkdir -p ${PLUGIN_START_DIR}
     git clone https://github.com/jiangmiao/auto-pairs.git ${PLUGIN_START_DIR}/auto-pairs
-    git clone https://github.com/junegunn/fzf.git         ${PLUGIN_START_DIR}/fzf
-    git clone https://github.com/junegunn/fzf.vim.git     ${PLUGIN_START_DIR}/fzf.vim
-    git clone https://github.com/preservim/nerdtree.git   ${PLUGIN_START_DIR}/nerdtree.vim
     git clone https://github.com/tpope/vim-fugitive.git   ${PLUGIN_START_DIR}/fugitive.vim
     git clone https://github.com/tpope/vim-obsession.git  ${PLUGIN_START_DIR}/obsession.vim
     git clone https://github.com/ziglang/zig.vim          ${PLUGIN_START_DIR}/zig.vim
 fi
 
-# Install fzf
-${PLUGIN_START_DIR}/fzf/install --bin
+VIMRC=${HOME}/.vimrc
+
+if [ -f ${VIMRC} ];
+    mv ${VIMRC} ${VIMRC}~
+fi
+
+echo "source ${HOME}/dotfiles/vim/.vimrc" > ${HOME}/.vimrc

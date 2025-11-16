@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
-
-${SOURCE_DIR}=$1
-
 NVIM_CONFIG_DIR="${HOME}/.config/nvim/"
 
-mkdir -p ${NVIM_CONFIG_DIR}/lua/{config,plugins}
-cp ${SOURCE_DIR}/init.lua ${NVIM_CONFIG_DIR}
-cp -r lua/ ${NVIM_CONFIG_DIR}/lua/
+cp -r ./lua/ ${NVIM_CONFIG_DIR}/lua/
 
-PLUGIN_START_DIR=${NVIM_CONFIG_DIR}/pack/bundle/start
-if [ ! -d ${PLUGIN_START_DIR} ]; then
-    mkdir -p ${PLUGIN_START_DIR}
-    git clone https://github.com/nvim-telescope/telescope.nvim.git ${PLUGIN_START_DIR}/telescope.nvim
-    git clone https://github.com/nvim-lua/plenary.nvim.git         ${PLUGIN_START_DIR}/plenary.nvim
-fi
+echo 'vim.cmd("source ${HOME}/dotfiles/nvim/init.lua")' > ${NVIM_CONFIG_DIR}/nvim/init.lua

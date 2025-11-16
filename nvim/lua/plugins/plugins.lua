@@ -9,7 +9,7 @@ return {
     config = function()
       require("nvim-tree").setup {}
     end,
-  },  
+  },
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.9',
     dependencies = { 'nvim-lua/plenary.nvim' }
