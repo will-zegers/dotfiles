@@ -4,8 +4,9 @@ ${SOURCE_DIR}=$1
 
 NVIM_CONFIG_DIR="${HOME}/.config/nvim/"
 
-mkdir ${NVIM_CONFIG_DIR}
-cp ${SOURCE_DIR}/init.vim ${NVIM_CONFIG_DIR}
+mkdir -p ${NVIM_CONFIG_DIR}/lua/{config,plugins}
+cp ${SOURCE_DIR}/init.lua ${NVIM_CONFIG_DIR}
+cp -r lua/ ${NVIM_CONFIG_DIR}/lua/
 
 PLUGIN_START_DIR=${NVIM_CONFIG_DIR}/pack/bundle/start
 if [ ! -d ${PLUGIN_START_DIR} ]; then
