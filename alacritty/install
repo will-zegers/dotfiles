@@ -8,6 +8,10 @@ ALACRITTY_INSTALL_DIR=/usr/local/bin
 ALACRITTY_CONFIG_DIR=${HOME}/.config/alacritty
 ALACRITTY_THEME_DIR=${ALACRITTY_CONFIG_DIR}/themes/
 
+# use Hack Nerd Font for the terminal
+wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip" -O /tmp/Hack.zip
+sudo unzip /tmp/Hack.zip /usr/local/share/fonts/
+
 sudo apt install -y\
   cargo\
   cmake\
@@ -35,5 +39,5 @@ if [ ! -d ${ALACRITTY_CONFIG_DIR} ]; then
     git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
   fi
 
-  cp ${ALACRITTY_DIR}/alacritty.yml ${ALACRITTY_CONFIG_DIR}
+  cp ${ALACRITTY_DIR}/alacritty.toml ${ALACRITTY_CONFIG_DIR}
 fi
