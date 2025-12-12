@@ -11,7 +11,28 @@ return {
     end,
   },
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.9',
+    'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
     dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = 'master',
+    lazy = false,
+    build = ":TSUpdate"
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    branch = 'main',
+    lazy = false,
   },
 }

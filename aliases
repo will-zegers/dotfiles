@@ -12,10 +12,6 @@ junction bak() {
   cp -r $1 $1.$(timestamp)~
 }
 
-function mkdir() {
-    command mkdir -p $1 && cd $1
-}
-
 # Credit to DistroTube: youtu.be/watch?v=_NRJU37DQLM
 function ex() {
   if [ -z $1  ]; then

@@ -53,9 +53,6 @@ nnoremap <leader>fb :Buffers<CR>
 nnoremap <f4> :buffers<CR>
 nnoremap <leader>b :buffers<CR>
 
-" better looking colorscheme with tmux
-colorscheme slate
-
 set cursorline
 set encoding=utf-8
 set expandtab
@@ -67,8 +64,8 @@ set nowrap
 set nrformats-=octal
 set number
 set relativenumber
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set smartcase
 set undofile
 
