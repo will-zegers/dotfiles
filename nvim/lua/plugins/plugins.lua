@@ -33,6 +33,17 @@ return {
   {
     "windwp/nvim-ts-autotag",
     branch = 'main',
-    lazy = false,
+  },
+  {
+    "tpope/vim-surround",
+    branch = 'master',
+  },
+  {
+    "ziglang/zig.vim",
+    branch = 'master',
+  },
+  {
+    "jiangmiao/auto-pairs",
+    branch = 'master',
   },
 }
