@@ -34,3 +34,19 @@ add-dotfile-as-source ${DOTFILES_DIR}/zsh/.zshrc ${HOME}/.zshrc
 add-dotfile-as-source ${DOTFILES_DIR}/aliases ${HOME}/.zshrc
 
 cp ${DOTFILES_DIR}/.ctags ${HOME}
+
+if [ command -v alacritty ]; then
+  echo "Configuring alacritty for user ${USER}"
+  ALACRITTY_CONFIG_DIR=${HOME}/.config/alacritty
+  ALACRITTY_THEME_DIR=${ALACRITTY_CONFIG_DIR}/themes/
+
+  if [ ! -d ${ALACRITTY_CONFIG_DIR} ]; then
+    mkdir -p ${ALACRITTY_CONFIG_DIR}
+    if [ ! -d ${ALACRITTY_THEME_DIR} ]; then
+      mkdir -p ${ALACRITTY_THEME_DIR}
+      git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
+    fi
+
+    cp ${SCRIPT_DIR}/alacritty.toml ${ALACRITTY_CONFIG_DIR}
+  fi
+fi

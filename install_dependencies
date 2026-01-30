@@ -2,18 +2,22 @@
 
 set -ex
 
-sudo apt update -y
-sudo apt install -y\
-  curl\
-  exuberant-ctags\
-  git\
-  luarocks\
-  ripgrep\
-  tmux\
-  tree\
-  vim\
-  wget\
+PACKAGES="
+  curl
+  exuberant-ctags
+  git
+  luarocks
+  ripgrep
+  tmux
+  tree
+  vim
+  wget
+  xclip
   zsh
+"
+
+apt update
+apt install -y ${PACKAGES}
 
 ### Grab the latest stable release of Neovim ###
 arch=$(uname -m)
@@ -22,15 +26,19 @@ if [[ "$arch" == "x86_64" ]]; then
 elif [[ "$arch" == "aarch64" ]]; then
     PKG_NAME="nvim-linux-arm64"
 fi
-wget https://github.com/neovim/neovim/releases/latest/download/$PKG_NAME.tar.gz -P /tmp
-tar xzf /tmp/$PKG_NAME.tar.gz -C /tmp
-sudo mv /tmp/$PKG_NAME /usr/local/nvim
 
-sudo ln -s /usr/local/nvim/bin/nvim /etc/alternatives/nvim
-sudo ln -sf /etc/alternatives/nvim /usr/bin/vi
-sudo ln -sf /etc/alternatives/nvim /usr/bin/vim
+ARCHIVE=${PKG_NAME}.tar.gz
+wget https://github.com/neovim/neovim/releases/latest/download/${ARCHIVE} -P /tmp
+tar xzf /tmp/${ARCHIVE} -C /usr/local/
+
+ln -sf /usr/local/${PKG_NAME}/bin/nvim /etc/alternatives/nvim
+ln -sf /etc/alternatives/nvim /usr/bin/vi
+ln -sf /etc/alternatives/nvim /usr/bin/nvim
 ###
 
-sudo apt -y autoremove
+SCRIPT_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+if [! command -v alacritty ]; then
+  ${SCRIPT_DIR}/alacritty/install
+fi
 
 touch /tmp/install_dependencies.stamp
