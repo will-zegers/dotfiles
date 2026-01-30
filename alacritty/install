@@ -24,7 +24,15 @@ DEPENDENCIES="
   python3
 "
 
-apt install -y ${DEPENDENCIES}
+source /etc/os-release
+if command -v apt; then
+  sudo apt install -y ${DEPENDENCIES}
+elif command -v pacman; then
+  sudo pacman -S --noconfirm ${DEPENDENCIES}
+else
+  echo "Unsupported Linux distro: ${ID}"
+  exit 1
+fi
 
 if [ ! -d ${REPO_DIR} ]; then
   git clone -b ${RELEASE} https://github.com/alacritty/alacritty.git ${REPO_DIR} || true

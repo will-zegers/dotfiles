@@ -3,11 +3,13 @@
 set -ex
 
 PACKAGES="
+  bat
   curl
-  exuberant-ctags
+  gcc
   git
   luarocks
   ripgrep
+  sudo
   tmux
   tree
   vim
@@ -16,8 +18,17 @@ PACKAGES="
   zsh
 "
 
-apt update
-apt install -y ${PACKAGES}
+if command -v apt; then
+  apt update -y
+  apt install -y ${PACKAGES}
+elif command -v pacman; then
+  pacman -Sy
+  pacman -S --noconfirm ${PACKAGES}
+else
+  source /etc/os-release
+  echo "Unsupported Linux distro: $NAME"
+  exit 1
+fi
 
 ### Grab the latest stable release of Neovim ###
 arch=$(uname -m)
@@ -31,9 +42,8 @@ ARCHIVE=${PKG_NAME}.tar.gz
 wget https://github.com/neovim/neovim/releases/latest/download/${ARCHIVE} -P /tmp
 tar xzf /tmp/${ARCHIVE} -C /usr/local/
 
-ln -sf /usr/local/${PKG_NAME}/bin/nvim /etc/alternatives/nvim
-ln -sf /etc/alternatives/nvim /usr/bin/vi
-ln -sf /etc/alternatives/nvim /usr/bin/nvim
+ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vi
+ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vim
 ###
 
 SCRIPT_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"

@@ -2,12 +2,6 @@
 
 set -ex
 
-if ! dpkg -l git vim &> /dev/null
-then
-    echo "Run install_dependencies first"
-    exit 1
-fi
-
 PLUGIN_START_DIR=${HOME}/.vim/pack/bundle/start
 if [ ! -d ${PLUGIN_START_DIR} ]; then
     mkdir -p ${PLUGIN_START_DIR}

@@ -3,7 +3,6 @@
 set -ex
 
 STAMP_FILE="/tmp/install_dependencies.stamp "
-
 if [ ! -f ${STAMP_FILE}]
 then
     echo "Run install_dependencies first"

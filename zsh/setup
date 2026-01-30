@@ -2,12 +2,6 @@
 
 set -ex
 
-if ! dpkg -l curl git zsh &> /dev/null
-then
-    echo "Run install_dependencies first"
-    exit 1
-fi
-
 SOURCE_DIR=$1
 
 # ZSH tools and plugins
