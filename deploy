@@ -2,7 +2,9 @@
 
 set -ex
 
-if ! dpkg -l git tmux vim zsh &> /dev/null
+STAMP_FILE="/tmp/install_dependencies.stamp "
+
+if [ ! -f ${STAMP_FILE}]
 then
     echo "Run install_dependencies first"
     exit 1
@@ -17,7 +19,7 @@ ${DOTFILES_DIR}/nvim/setup ${DOTFILES_DIR}/nvim/
 ${DOTFILES_DIR}/vim/setup
 ${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}/zsh/
 
-function add-dotfile-as-source() {
+function add-dotfile-as-source () {
     # Append a line in `src` to source the `dst` file
     local src=$1
     local dst=$2

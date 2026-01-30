@@ -19,7 +19,7 @@ fi
 
 VIMRC=${HOME}/.vimrc
 
-if [ -f ${VIMRC} ];
+if [ -f ${VIMRC} ]; then
     mv ${VIMRC} ${VIMRC}~
 fi
 
