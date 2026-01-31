@@ -18,6 +18,13 @@ ${DOTFILES_DIR}/nvim/setup ${DOTFILES_DIR}/nvim/
 ${DOTFILES_DIR}/vim/setup
 ${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}/zsh/
 
+mkdir -p ${HOME}/.local/bin
+cp ${DOTFILES_DIR}/.ctags ${HOME}
+
+if command -v alacritty; then
+  ${DOTFILES_DIR}/alacritty/configure
+fi
+
 function add-dotfile-as-source () {
     # Append a line in `src` to source the `dst` file
     local src=$1
@@ -31,9 +38,3 @@ add-dotfile-as-source ${DOTFILES_DIR}/tmux/.tmux.conf ${HOME}/.tmux.conf
 add-dotfile-as-source ${DOTFILES_DIR}/vim/.vimrc ${HOME}/.vimrc
 add-dotfile-as-source ${DOTFILES_DIR}/zsh/.zshrc ${HOME}/.zshrc
 add-dotfile-as-source ${DOTFILES_DIR}/aliases ${HOME}/.zshrc
-
-cp ${DOTFILES_DIR}/.ctags ${HOME}
-
-if command -v alacritty; then
-  ${DOTFILES_DIR}/alacritty/configure
-fi

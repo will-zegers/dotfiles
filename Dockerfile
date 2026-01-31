@@ -12,7 +12,7 @@ RUN ${dotfiles_dir}/install_dependencies --no-alacritty
 
 RUN groupadd -f sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> \/etc/sudoers
-RUN useradd --home-dir ${home} -G sudo ${user}
+RUN useradd --home-dir ${home} --shell /usr/bin/zsh -G sudo ${user}
 RUN chown -R ${user}: ${home}
 
 USER ${user}
