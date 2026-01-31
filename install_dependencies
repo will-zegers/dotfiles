@@ -2,6 +2,21 @@
 
 set -ex
 
+DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+
+INSTALL_ALACRITTY=true
+while [[ "$#" -gt 0 ]]; do
+  case $1 in
+    --no-alacritty)
+      INSTALL_ALACRITTY=false
+      ;;
+    *)
+      echo "Unknown parameter passed: $1";
+      exit 1
+  esac
+  shift
+done
+
 PACKAGES="
   bat
   curl
@@ -26,7 +41,7 @@ elif command -v pacman; then
   pacman -S --noconfirm ${PACKAGES}
 else
   source /etc/os-release
-  echo "Unsupported Linux distro: $NAME"
+  echo "Unsupported Linux distro: ${NAME}"
   exit 1
 fi
 
@@ -46,9 +61,8 @@ ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vi
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vim
 ###
 
-SCRIPT_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-if [! command -v alacritty ]; then
-  ${SCRIPT_DIR}/alacritty/install
+if ! command -v alacritty && ${INSTALL_ALACRITTY}; then
+  ${DOTFILES_DIR}/alacritty/install ${DOTFILES_DIR}
 fi
 
 touch /tmp/install_dependencies.stamp
