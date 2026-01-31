@@ -45,21 +45,7 @@ else
   exit 1
 fi
 
-### Grab the latest stable release of Neovim ###
-arch=$(uname -m)
-if [[ "$arch" == "x86_64" ]]; then
-    PKG_NAME="nvim-linux-x86_64"
-elif [[ "$arch" == "aarch64" ]]; then
-    PKG_NAME="nvim-linux-arm64"
-fi
-
-ARCHIVE=${PKG_NAME}.tar.gz
-wget https://github.com/neovim/neovim/releases/latest/download/${ARCHIVE} -P /tmp
-tar xzf /tmp/${ARCHIVE} -C /usr/local/
-
-ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vi
-ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vim
-###
+${DOTFILES_DIR}/nvim/install
 
 if ! command -v alacritty && ${INSTALL_ALACRITTY}; then
   ${DOTFILES_DIR}/alacritty/install ${DOTFILES_DIR}
