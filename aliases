@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-function cd() {
+function cd () {
     new_directory="$*";
     if [ $# -eq 0 ]; then 
         new_directory=${HOME};
@@ -13,7 +13,7 @@ junction bak() {
 }
 
 # Credit to DistroTube: youtu.be/watch?v=_NRJU37DQLM
-function ex() {
+function ex () {
   if [ -z $1  ]; then
     echo "usage: ex <filename>"
   elif [ -f $1  ]; then
@@ -40,5 +40,4 @@ function ex() {
 alias xclip="xclip -sel clip"
 alias timestamp="date +%Y.%m.%d@%H:%M"
 alias cp=cp -i
-alias df=df -h
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
