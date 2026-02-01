@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+if command -v apt; then
+  sudo apt update
+  sudo apt install -y npm
+elif command -v pacman; then
+  pacman -Sy
+  pacman -S --noconfirm npm
+else
+  source /etc/os-release
+  echo "Unsupported Linux distro: ${NAME}"
+  exit 1
+fi
+
+sudo npm install -g typescript typescript-language-server

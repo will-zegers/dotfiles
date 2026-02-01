@@ -18,7 +18,6 @@ ${DOTFILES_DIR}/nvim/setup ${DOTFILES_DIR}/nvim/
 ${DOTFILES_DIR}/vim/setup
 ${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}/zsh/
 
-mkdir -p ${HOME}/.local/bin
 cp ${DOTFILES_DIR}/.ctags ${HOME}
 
 if command -v alacritty; then
