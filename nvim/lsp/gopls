@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+export GOPATH=${HOME}/.local/
+
+VERSION=1.25.6
+
+if ! command -v go &> /dev/null; then
+  rm -rf ${HOME}/.local/go
+  curl -sL https://go.dev/dl/go${VERSION}.linux-amd64.tar.gz | tar -C ${GOPATH} -xzf -
+
+  ln -sf ${HOME}/.local/go/bin/go ${HOME}/.local/bin/go
+  ln -sf ${HOME}/.local/go/bin/gofmt ${HOME}/.local/bin/gofmt
+fi
+
+go install golang.org/x/tools/gopls@latest

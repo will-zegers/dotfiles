@@ -46,4 +46,8 @@ return {
     "jiangmiao/auto-pairs",
     branch = 'master',
   },
+  {
+    "neovim/nvim-lspconfig",
+    branch = 'master',
+  },
 }

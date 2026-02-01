@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+if ! command -v rustup &> /dev/null; then
+  curl -s --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  export PATH=${PATH}:${HOME}/.cargo/bin
+fi
+rustup component add rust-src rust-analyzer

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -e
+
+VERSION=21.1.8
+PKG_NAME=clangd-linux-${VERSION}
+
+wget https://github.com/clangd/clangd/releases/download/${VERSION}/${PKG_NAME}.zip -P /tmp
+unzip /tmp/${PKG_NAME} -d ${HOME}/.local/
+chmod +x ${HOME}/.local/clangd_${VERSION}/bin/clangd
+ln -sf ${HOME}/.local/clangd_${VERSION}/bin/clangd ${HOME}/.local/bin/clangd
