@@ -9,10 +9,3 @@ mkdir -p ${NVIM_CONFIG_DIR}
 cp -rf ${NVIM_DIR}/lua/ ${NVIM_CONFIG_DIR}/lua/
 
 echo 'vim.cmd("source ${HOME}/dotfiles/nvim/init.lua")' > ${NVIM_CONFIG_DIR}/init.lua
-
-# # Install LSPs
-# mkdir -p ${HOME}/.local/bin
-# for lsp in `ls ${NVIM_DIR}/lsp`; do
-#   ${NVIM_DIR}/lsp/${lsp}
-#   echo "vim.lsp.enable('${lsp}')" >> ${NVIM_CONFIG_DIR}/init.lua
-# done

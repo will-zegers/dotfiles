@@ -25,9 +25,12 @@ nnoremap J mzJ`z
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
 
-" swap role of ; and : (i.e. use ';' to run Ex commands)
+" swap role of ; and : (i.e. use ';' to run Ex commands) for normal and visual
+" modes
 nnoremap : ;
 nnoremap ; :
+vnoremap : ;
+vnoremap ; :
 
 nnoremap <C-l> :noh<CR>
 
@@ -57,16 +60,16 @@ set cursorline
 set encoding=utf-8
 set expandtab
 set hidden
-set hlsearch
 set history=200
+set hlsearch
 set list
 set nowrap
 set nrformats-=octal
 set number
 set relativenumber
-set tabstop=2
 set shiftwidth=2
 set smartcase
+set tabstop=2
 set undofile
 
 " for zsh autocomplete behavior

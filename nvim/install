@@ -11,6 +11,6 @@ ARCHIVE=${PKG_NAME}.tar.gz
 wget https://github.com/neovim/neovim/releases/latest/download/${ARCHIVE} -P /tmp
 tar xzf /tmp/${ARCHIVE} -C /usr/local/
 
-ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/nvim
+ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/local/bin/nvim
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vi
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vim
