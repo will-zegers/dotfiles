@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+LSP_NAME=${1}
+LSP_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+NVIM_CONFIG_FILE=${2:-${HOME}/.config/nvim/init.lua}
+
+if [ -z ${LSP_NAME} ] || ! [[ "$(ls ${LSP_DIR})" =~ "${LSP_NAME}" ]]; then
+  echo "usage: install_lsp <LSP name> [path to init.lua]"
+  printf "  available LSPs:"
+  for lsp in $(ls ${LSP_DIR}); do
+    if [[ ${0} =~ ${lsp} ]]; then
+      continue
+    fi
+    printf "\n    ${lsp}"
+  done
+  echo ""
+  exit 1
+fi
+
+if [[ "$(cat ${NVIM_CONFIG_FILE})" =~ "${LSP_NAME}" ]]; then
+  printf "${LSP_NAME} already enabled\n"
+  exit 0
+fi
+
+${LSP_DIR}/${LSP_NAME}
+echo "vim.lsp.enable('${LSP_NAME}')" >> ${NVIM_CONFIG_FILE}
+echo "${LSP_NAME} installed"
