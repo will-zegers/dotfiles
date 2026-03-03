@@ -44,4 +44,24 @@ return {
     "neovim/nvim-lspconfig",
     branch = 'master',
   },
+  {
+    "axsaucedo/neovim-power-mode",
+    config = function()
+      require("power-mode").setup({
+        auto_enable = false,
+        particles = { preset = "stars" },
+        shake = { mode = "scroll" },
+        fire_wall = { enabled = true },
+      })
+    end
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup({
+        options = { theme = 'powerline_dark' },
+      })
+    end
+  }
 }

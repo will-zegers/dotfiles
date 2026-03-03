@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-set -ex
+set -e
 
 DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
@@ -11,7 +11,7 @@ while [[ "$#" -gt 0 ]]; do
       INSTALL_ALACRITTY=false
       ;;
     *)
-      echo "Unknown parameter passed: $1";
+      echo "Unknown argument: '$1'";
       exit 1
   esac
   shift
