@@ -44,9 +44,10 @@ cp ${REPO_DIR}/target/release/alacritty ${INSTALL_DIR}
 update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator ${INSTALL_DIR}/alacritty 50
 rm -r ${REPO_DIR}
 
-# use Hack Nerd Font for the terminal
+# use NerdFont for the terminal
+FAMILY=Monofur
 FONTS_DIR=/usr/local/share/fonts/
-wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip" -O /tmp/Hack.zip
+wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/${FAMILY}.zip" -O /tmp/${FAMILY}.zip
 mkdir -p ${FONTS_DIR}
-unzip -o /tmp/Hack.zip -d ${FONTS_DIR}
-rm -r /tmp/Hack.zip
+unzip -o /tmp/${FAMILY}.zip -d ${FONTS_DIR}
+rm -r /tmp/${FAMILY}.zip

@@ -19,4 +19,5 @@ export LANG=en_US.UTF-8
 export FZF_DEFAULT_COMMAND='rg --files'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /home/will/dotfiles/aliases
+source ${HOME}/dotfiles/aliases
+source ${HOME}/dotfiles/zsh/.manrc
