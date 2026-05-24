@@ -68,5 +68,10 @@ return {
         options = { theme = 'powerline_dark' },
       })
     end
-  }
+  },
+  {
+    "CopilotC-Nvim/CopilotChat.nvim",
+    dependencies = { "github/copilot.vim" },
+    branch = 'main',
+  },
 }

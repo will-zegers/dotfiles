@@ -20,3 +20,7 @@ tar xzf /tmp/${ARCHIVE} -C /usr/local/
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/local/bin/nvim
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vi
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vim
+
+# Nodejs v22+ needed for Copilot plugin
+curl -fsSL https://deb.nodesource.com/setup_25.x | sudo bash -
+apt install -y nodejs
