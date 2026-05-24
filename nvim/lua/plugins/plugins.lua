@@ -15,6 +15,11 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
   {
+    "nvim-telescope/telescope-ui-select.nvim",
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+    branch='master',
+  },
+  {
     "folke/tokyonight.nvim",
     opts = {
       transparent = true,

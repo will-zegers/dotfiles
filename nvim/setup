@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
 NVIM_DIR=${1:-${HOME}/dotfiles/nvim}
 NVIM_CONFIG_DIR="${HOME}/.config/nvim/"
 
 mkdir -p ${NVIM_CONFIG_DIR}
-cp -rf ${NVIM_DIR}/lua/ ${NVIM_CONFIG_DIR}/lua/
+ln -s ${NVIM_DIR}/lua/ ${NVIM_CONFIG_DIR}/lua
 
 echo 'vim.cmd("source ${HOME}/dotfiles/nvim/init.lua")' > ${NVIM_CONFIG_DIR}/init.lua
