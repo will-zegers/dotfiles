@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+set -e
+
+# TODO: At time of writing, v12.0+ have issues with double key inputs in Alacritty,
+#       so bump version when this gets fixed
+VERSION=v0.11.7
+
 arch=$(uname -m)
 if [[ "$arch" == "x86_64" ]]; then
     PKG_NAME="nvim-linux-x86_64"
@@ -8,7 +14,7 @@ elif [[ "$arch" == "aarch64" ]]; then
 fi
 
 ARCHIVE=${PKG_NAME}.tar.gz
-wget https://github.com/neovim/neovim/releases/latest/download/${ARCHIVE} -P /tmp
+wget https://github.com/neovim/neovim/releases/download/${VERSION}/${ARCHIVE} -P /tmp
 tar xzf /tmp/${ARCHIVE} -C /usr/local/
 
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/local/bin/nvim
