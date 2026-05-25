@@ -22,12 +22,10 @@ PACKAGES="
   curl
   gcc
   git
-  luarocks
   ripgrep
   sudo
   tmux
   tree
-  vim
   wget
   xclip
   zsh

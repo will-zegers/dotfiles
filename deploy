@@ -15,11 +15,7 @@ DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
 
 ${DOTFILES_DIR}/nvim/setup ${DOTFILES_DIR}/nvim/
-${DOTFILES_DIR}/vim/setup
 ${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}/zsh/
-
-mkdir -p ${HOME}/.local/bin
-cp ${DOTFILES_DIR}/.ctags ${HOME}
 
 if command -v alacritty; then
   ${DOTFILES_DIR}/alacritty/configure
@@ -35,6 +31,5 @@ function add-dotfile-as-source () {
 }
 
 add-dotfile-as-source ${DOTFILES_DIR}/tmux/.tmux.conf ${HOME}/.tmux.conf
-add-dotfile-as-source ${DOTFILES_DIR}/vim/.vimrc ${HOME}/.vimrc
 add-dotfile-as-source ${DOTFILES_DIR}/zsh/.zshrc ${HOME}/.zshrc
 add-dotfile-as-source ${DOTFILES_DIR}/aliases ${HOME}/.zshrc
