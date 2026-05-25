@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-set -ex
+set -e
 
 STAMP_FILE="/tmp/install_dependencies.stamp "
 if [ ! -f ${STAMP_FILE}]

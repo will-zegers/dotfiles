@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-set -ex
+set -e
 
 PLUGIN_START_DIR=${HOME}/.vim/pack/bundle/start
 if [ ! -d ${PLUGIN_START_DIR} ]; then
