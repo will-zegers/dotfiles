@@ -45,6 +45,12 @@ else
   exit 1
 fi
 
+# Nodejs v22+ needed for Copilot plugin and Gemini CLI
+curl -fsSL https://deb.nodesource.com/setup_25.x | sudo bash -
+apt install -y nodejs
+
+npm install -g @google/gemini-cli
+
 ${DOTFILES_DIR}/nvim/install
 
 if ! command -v alacritty && ${INSTALL_ALACRITTY}; then
