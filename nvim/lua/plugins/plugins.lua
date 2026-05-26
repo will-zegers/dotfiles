@@ -30,6 +30,12 @@ return {
     },
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    branch = 'master',
+    lazy = false,
+    build = ":TSUpdate"
+  },
+  {
     "windwp/nvim-ts-autotag",
     branch = 'main',
   },
@@ -48,6 +54,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     branch = 'master',
+    config = function()
+      vim.diagnostic.config({
+        virtual_text = true,
+      })
+    end
   },
   {
     "axsaucedo/neovim-power-mode",
