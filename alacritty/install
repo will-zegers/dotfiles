@@ -33,6 +33,7 @@ RELEASE=v0.13.2
 INSTALL_DIR=/usr/local/bin
 CONFIG_DIR=${HOME}/.config/alacritty
 THEMES_DIR=${CONFIG_DIR}/themes/
+FONTS_DIR=/usr/local/share/fonts
 
 if [ ! -d ${REPO_DIR} ]; then
   git clone -b ${RELEASE} https://github.com/alacritty/alacritty.git ${REPO_DIR}
@@ -40,14 +41,25 @@ fi
 
 $(cd ${REPO_DIR}; cargo build --release)
 
+# Install and set Alacritty as the default terminal emulator
 cp ${REPO_DIR}/target/release/alacritty ${INSTALL_DIR}
 update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator ${INSTALL_DIR}/alacritty 50
 rm -r ${REPO_DIR}
 
-# use NerdFont for the terminal
+function install-font {
+  local family=$1
+  local url=$2
+
+  wget "${url}" -O /tmp/${family}.zip
+  mkdir -p ${FONTS_DIR}
+  unzip -o /tmp/${family}.zip -d ${FONTS_DIR}
+  rm -r /tmp/${family}.zip
+}
+
 FAMILY=Monofur
-FONTS_DIR=/usr/local/share/fonts/
-wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/${FAMILY}.zip" -O /tmp/${FAMILY}.zip
-mkdir -p ${FONTS_DIR}
-unzip -o /tmp/${FAMILY}.zip -d ${FONTS_DIR}
-rm -r /tmp/${FAMILY}.zip
+VERSION=v3.4.0
+install-font ${FAMILY} "https://github.com/ryanoasis/nerd-fonts/releases/download/${VERSION}/${FAMILY}.zip" -O /tmp/${FAMILY}.zip
+
+FAMILY=JetBrainsMono
+VERSION=1.0.3
+install-font ${FAMILY} "https://download.jetbrains.com/fonts/${FAMILY}-${VERSION}.zip"

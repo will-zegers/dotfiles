@@ -11,3 +11,5 @@ save_to_clipboard = true
 [font]
 size = 15.0
 normal = { family = "Monofur NerdFont", style = "Regular" }
+# size = 12.0
+# normal = { family = "JetBrains Mono", style = "Regular" }
