@@ -12,7 +12,10 @@ return {
   },
   {
     'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'debugloop/telescope-undo.nvim',
+    }
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",

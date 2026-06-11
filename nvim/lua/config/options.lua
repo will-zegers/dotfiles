@@ -16,7 +16,7 @@ vim.opt.relativenumber = true
 vim.opt.shiftwidth = 2
 vim.opt.smartcase = true
 vim.opt.tabstop = 2
-vim.opt.undofile = true
+vim.opt.undofile = false
 
 -- For zsh autocomplete behavior
 vim.opt.wildmenu = true
