@@ -17,6 +17,7 @@ vim.opt.shiftwidth = 2
 vim.opt.smartcase = true
 vim.opt.tabstop = 2
 vim.opt.undofile = false
+vim.opt.foldmethod = "indent"
 
 -- For zsh autocomplete behavior
 vim.opt.wildmenu = true
