@@ -19,6 +19,7 @@ done
 
 PACKAGES="
   bat
+  btop
   curl
   gcc
   git
