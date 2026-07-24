@@ -12,7 +12,7 @@ fi
 DOTFILES_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 
 # Never need these
-rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos}
+rm -rf ${HOME}/{Documents,Music,Pictures,Public,Templates,Videos} || true
 
 ${DOTFILES_DIR}/nvim/setup ${DOTFILES_DIR}/nvim/
 ${DOTFILES_DIR}/zsh/setup ${DOTFILES_DIR}/zsh/

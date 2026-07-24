@@ -11,16 +11,16 @@ return {
     end,
   },
   {
-    'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
+    "nvim-telescope/telescope.nvim", tag = "v0.2.0",
     dependencies = {
-      'nvim-lua/plenary.nvim',
-      'debugloop/telescope-undo.nvim',
+      "nvim-lua/plenary.nvim",
+      "debugloop/telescope-undo.nvim",
     }
   },
   {
     "nvim-telescope/telescope-ui-select.nvim",
-    dependencies = { 'nvim-telescope/telescope.nvim' },
-    branch='master',
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    branch="master",
   },
   {
     "folke/tokyonight.nvim",
@@ -34,33 +34,47 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = 'master',
+    branch = "master",
     lazy = false,
     build = ":TSUpdate"
   },
   {
     "windwp/nvim-ts-autotag",
-    branch = 'main',
+    branch = "main",
   },
   {
     "tpope/vim-surround",
-    branch = 'master',
+    branch = "master",
   },
   {
     "ziglang/zig.vim",
-    branch = 'master',
+    branch = "master",
   },
   {
     "jiangmiao/auto-pairs",
-    branch = 'master',
+    branch = "master",
   },
   {
     "neovim/nvim-lspconfig",
-    branch = 'master',
+    branch = "master",
     config = function()
       vim.diagnostic.config({
         virtual_text = true,
       })
+      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+    end
+  },
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    config = function()
+      require("mason-lspconfig").setup()
     end
   },
   {
@@ -79,13 +93,13 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       require("lualine").setup({
-        options = { theme = 'powerline_dark' },
+        options = { theme = "powerline_dark" },
       })
     end
   },
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = { "github/copilot.vim" },
-    branch = 'main',
+    branch = "main",
   },
 }
