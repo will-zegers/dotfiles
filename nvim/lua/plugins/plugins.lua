@@ -102,4 +102,25 @@ return {
     dependencies = { "github/copilot.vim" },
     branch = "main",
   },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "saadparwaiz1/cmp_luasnip",
+      "rafamadriz/friendly-snippets",
+    },
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {"hrsh7th/cmp-nvim-lsp"},
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    branch = "master",
+    config = function()
+      vim.keymap.set("n", "<C-h>", ":TmuxNavigateLeft<CR>", {})
+      vim.keymap.set("n", "<C-j>", ":TmuxNavigateDown<CR>", {})
+      vim.keymap.set("n", "<C-k>", ":TmuxNavigateUp<CR>", {})
+      vim.keymap.set("n", "<C-l>", ":TmuxNavigateRight<CR>", {})
+    end
+  },
 }

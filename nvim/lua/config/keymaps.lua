@@ -7,8 +7,8 @@ local keymap = vim.keymap.set
 keymap("n", "<leader>w", ":wa<CR>")
 keymap("n", "<leader>q", ":q<CR>")
 keymap("n", "<leader>t", ":tabnew<CR>")
-keymap("n", "<leader>s", ":vsplit<CR>:w<CR>")
-keymap("n", "<leader>i", ":split<CR>:w<CR>")
+keymap("n", "<leader>|", ":vsplit<CR>:w<CR>")
+keymap("n", "<leader>-", ":split<CR>:w<CR>")
 keymap("n", "<leader><", ":bprevious<CR>")
 keymap("n", "<leader>>", ":bnext<CR>")
 keymap("n", "<leader>d", ":bdel<CR>")
@@ -29,4 +29,4 @@ keymap("v", ":", ";")
 keymap("v", ";", ":")
 
 -- Clear search highlight
-keymap("n", "<C-l>", ":noh<CR>")
+keymap("n", "<C-n>", ":noh<CR>")

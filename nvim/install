@@ -18,5 +18,6 @@ wget https://github.com/neovim/neovim/releases/download/${VERSION}/${ARCHIVE} -P
 tar xzf /tmp/${ARCHIVE} -C /usr/local/
 
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/local/bin/nvim
+ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/local/bin/nv
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vi
 ln -sf /usr/local/${PKG_NAME}/bin/nvim /usr/bin/vim

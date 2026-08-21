@@ -1,6 +1,7 @@
 require("config.lazy")
 
 require("config.copilot")
+require("config.nvim-cmp")
 require("config.keymaps")
 require("config.nvim-tree")
 require("config.nvim-ts-autotag")
