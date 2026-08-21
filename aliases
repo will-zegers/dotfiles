@@ -42,3 +42,5 @@ alias timestamp="date +%Y.%m.%d@%H:%M"
 alias cp=cp -i
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias bat=batcat
+alias tm=tmux
+alias tn=tmux new-session -A -s
