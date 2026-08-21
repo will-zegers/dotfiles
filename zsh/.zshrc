@@ -4,7 +4,7 @@ export PATH=$PATH:${HOME}/.local/bin
 export EDITOR=$(which nvim)
 export VISUAL=$(which nvim)
 
-ZSH_THEME="rkj-repos"
+ZSH_THEME="bira"
 
 # Case-sensitive completion.
 CASE_SENSITIVE="true"
